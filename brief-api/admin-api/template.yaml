@@ -1,0 +1,111 @@
+# This is the SAM template that represents the architecture of your serverless application
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-template-basics.html
+
+# The AWSTemplateFormatVersion identifies the capabilities of the template
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  brief-api
+
+Globals:
+  Function:
+    Runtime: nodejs16.x
+    Architectures:
+      - x86_64
+    MemorySize: 500
+    Timeout: 100
+    Environment:
+      Variables:
+        USER_PREFIX: brief-users
+        STUDENT_PREFIX: brief-students
+        COURSE_PREFIX: brief-courses
+        ASSIGNMENT_PREFIX: brief-assignments
+        ATTEMPT_PREFIX: brief-attempts
+        SUFFIX: -test
+        REGION: us-east-2
+        APP_NAME: BRIEF
+        APP_KEY: BRIEF_JJ0kjk7iWQ1ImD8GtkVn1sfxi$9Ez
+  Api:
+    Cors:
+      AllowHeaders: "'Content-Type,Authorization'"
+      AllowOrigin: "'*'"
+
+# Transform section specifies one or more macros that AWS CloudFormation uses to process your template
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
+Transform:
+- AWS::Serverless-2016-10-31
+
+# Resources declares the AWS resources that you want to include in the stack
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
+Resources:
+  # Each Lambda function is defined by properties:
+  # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+  ########################################## USER ROUTES ##########################################
+
+  adminDeleteUsers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/admin/users/admin-delete-users.adminDeleteUsers
+      Description: Allows an admin to delete one or more users
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users
+            Method: DELETE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/admin/users/admin-delete-users.ts
+
+  adminGetUsers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/admin/users/admin-get-users.adminGetUsers
+      Description: Allows an admin to get one or more users
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /admin/users
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/admin/users/admin-get-users.ts
+
+  #################################################################################################
+
+  notFound:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/not-found.notFound
+      Description: Catch all route letting users know this address does not exist
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /{path+}
+            Method: ANY
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/not-found.ts
+
+#Outputs:
+  #WebEndpoint:
+    #Description: "API Gateway endpoint URL for Prod stage"
+    #Value: Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"

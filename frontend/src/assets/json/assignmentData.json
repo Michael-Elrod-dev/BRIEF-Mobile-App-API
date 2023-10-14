@@ -1,0 +1,24 @@
+{
+    "assignment" : [
+        {
+            "name" : "AssignmentA",
+            "maxPoints" : "10",
+            "subject" : ""
+        },
+        {
+            "name" : "AssignmentB",
+            "maxPoints" : "20",
+            "subject" : ""
+        },
+        {
+            "name" : "AssignmentC",
+            "maxPoints" : "30",
+            "subject" : ""
+        },
+        {
+            "name" : "AssignmentD",
+            "maxPoints" : "40",
+            "subject" : ""
+        }
+    ]
+}

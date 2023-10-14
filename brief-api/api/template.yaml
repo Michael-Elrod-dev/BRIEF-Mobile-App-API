@@ -1,0 +1,655 @@
+# This is the SAM template that represents the architecture of your serverless application
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-template-basics.html
+
+# The AWSTemplateFormatVersion identifies the capabilities of the template
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  brief-api
+
+Globals:
+  Function:
+    Runtime: nodejs16.x
+    Architectures:
+      - x86_64
+    MemorySize: 500
+    Timeout: 100
+    Environment:
+      Variables:
+        USER_PREFIX: brief-users
+        STUDENT_PREFIX: brief-students
+        COURSE_PREFIX: brief-courses
+        ASSIGNMENT_PREFIX: brief-assignments
+        ATTEMPT_PREFIX: brief-attempts
+        SUFFIX: -test
+        REGION: us-east-2
+        APP_NAME: BRIEF
+        APP_KEY: BRIEF_JJ0kjk7iWQ1ImD8GtkVn1sfxi$9Ez
+  Api:
+    Cors:
+      AllowHeaders: "'Content-Type,Authorization'"
+      AllowOrigin: "'*'"
+
+# Transform section specifies one or more macros that AWS CloudFormation uses to process your template
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
+Transform:
+- AWS::Serverless-2016-10-31
+
+# Resources declares the AWS resources that you want to include in the stack
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
+Resources:
+  # Each Lambda function is defined by properties:
+  # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+  ########################################## USER ROUTES ##########################################
+
+  getAllUsers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/users/get-all-users.getAllUsers
+      Description: Gets and returns all users
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users/all
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/users/get-all-users.ts
+
+  getSuiteUsers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/users/get-suite-users.getSuiteUsers
+      Description: Gets and returns users associated with suite email
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users/{suiteEmail}
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/users/get-suite-users.ts
+
+  getCourseUsers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/users/get-course-users.getCourseUsers
+      Description: Gets and returns users associated with course(s)
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users/courses/{courseID}
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/users/get-course-users.ts
+
+  getRoleUsers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/users/get-role-users.getRoleUsers
+      Description: Gets and returns users with certain role
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users/role/{role}
+            Method: GET        
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/users/get-role-users.ts
+
+  createUsers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/users/create-users.createUsers
+      Description: Creates a BRIEF App User
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users
+            Method: POST
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/users/create-users.ts
+
+  editUsers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/users/edit-users.editUsers
+      Description: Edit/update a specific user, using the information from the payload
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users/{suiteEmail}
+            Method: PUT
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/users/edit-users.ts
+
+  deleteUser:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/users/delete-user.deleteUser
+      Description: Deletes the requesting 
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /users
+            Method: DELETE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/users/delete-user.ts
+
+  #################################################################################################
+
+
+  ######################################### AUTH ROUTES ###########################################
+
+  signInStepTwo:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/auth/sign-in-step-two.signInStepTwo
+      Description: Signs a user in and returns their secondary app tokens
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /2fa
+            Method: POST
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/auth/sign-in-step-two.ts
+
+  signInStepOne:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/auth/sign-in-step-one.signInStepOne
+      Description: First step of the sign in process. Signs a user in or returns some other account info
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /auth
+            Method: POST
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/auth/sign-in-step-one.ts
+
+  refreshToken:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/auth/refresh-token.refreshToken
+      Description: Refreshes a users secondary app access token
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /auth
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/auth/refresh-token.ts
+
+  #################################################################################################
+
+  ######################################## STUDENT ROUTES #########################################
+  
+  getAllStudents:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/students/get-all-students.getAllStudents
+      Description: Gets and returns all students from students table
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /students
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/students/get-all-students.ts
+
+  getSuiteStudents:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/students/get-suite-students.getSuiteStudents
+      Description: Gets and returns students associated with suite email
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /student/{pathEmail}
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/students/get-suite-students.ts
+
+  getAssignmentStudents:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/students/get-assignment-students.getAssignmentStudents
+      Description: Gets and returns students associated with assignment(s)
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /student/assignment/{pathAssignment}
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/students/get-assignment-students.ts
+
+
+  # #################################################################################################
+
+  # ######################################### COURSE ROUTES #########################################
+  
+  createCourses:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/courses/create-courses.createCourses
+      Description: Creates a BRIEF App Course using payload
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /course
+            Method: POST
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/courses/create-courses.ts
+
+  editCourses:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/courses/edit-courses.editCourses
+      Description: Edit/update a specific course, using the information from the payload
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /course/{courseId}
+            Method: PUT
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/courses/edit-courses.ts
+
+  deleteCourses:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/courses/delete-courses.deleteCourses
+      Description: Deletes a BRIEF App course based on the courseID
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /course/{pathId}
+            Method: DELETE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/courses/delete-courses.ts
+
+  createAssignment:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/assignments/create-assignments.createAssignments
+      Description: Creates an assignment under a given course
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /course/{courseID}/assignment
+            Method: POST
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/assignments/create-assignments.ts
+
+  # #################################################################################################
+
+  # ######################################### ASSIGNMENT ROUTES #####################################
+  
+  # This is moved to a course route
+  createAssignments:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/assignments/create-assignments.createAssignments
+      Description: Creates a BRIEF App Assignment using payload
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /assignment
+            Method: POST
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/assignments/create-assignments.ts
+
+  createAssignmentAttempt:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/assignments/create-attempt.createAttempt
+      Description: Creates a BRIEF App Assignment using payload
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /assignment/{id}/attempt
+            Method: POST
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/assignments/create-attempt.ts
+
+  getAllAssignments:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/assignments/get-all-assignments.getAssignments
+      Description: Gets and returns all assignments
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /assignments
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/assignments/get-all-assignments.ts
+
+  deleteAssignments:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/assignments/delete-assignments-by-id.deleteAssignments
+      Description: Deletes a BRIEF App assignment based on the assignmentID
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /assignments
+            Method: DELETE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/assignments/delete-assignments-by-id.ts
+
+  deleteAssignmentAttempts:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/assignments/delete-assignment-attempts.deleteAssignmentAttempts
+      Description: Deletes a BRIEF App assignment based on the assignmentID
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /assignment/attempt
+            Method: DELETE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/assignments/delete-assignment-attempts.ts
+
+
+  # #################################################################################################
+
+  # ######################################### ATTEMPT ROUTES ########################################
+  
+  createAttempts:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/attempts/create-attempts.createAttempts
+      Description: Creates a BRIEF App attempt using payload
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /attempt
+            Method: POST
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/attempts/create-attempts.ts
+
+  editAssignmentAttempts:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/assignments/edit-assignment-attempts.editAssignmentAttempts
+      Description: Edit/update a specific attempt, using the information from the payload
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /assignments/{assignmentID}/attempts/{attemptID}
+            Method: PUT
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/assignments/edit-assignment-attempts.ts
+
+  getAttempts:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/attempts/get-attempts.getAttempts
+      Description: Gets and returns attempts with attemptID from attempts table
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /attempt/{pathId}
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/attempts/get-attempts.ts
+
+  getAssignmentAttempts:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/attempts/get-assignment-attempts.getAssignmentAttempts
+      Description: Gets and returns attempts associated with assignmentID from attempts table
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /attempt/assignment/{pathAssignment}
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/attempts/get-assignment-attempts.ts
+
+  getStudentAttempts:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/attempts/get-student-attempts.getStudentAttempts
+      Description: Gets and returns attempts associated with student suiteEmail from attempts table
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /attempt/student/{pathEmail}
+            Method: GET
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/attempts/get-student-attempts.ts
+
+  deleteAttempts:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/attempts/delete-attempts.deleteAttempts
+      Description: Deletes a BRIEF App attempt based on the attemptID
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /attempt/{pathId}
+            Method: DELETE
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/attempts/delete-attempts.ts
+
+  #################################################################################################
+
+  notFound:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handlers/not-found.notFound
+      Description: Catch all route letting users know this address does not exist
+      Role: arn:aws:iam::923737008324:role/BRIEFAPIAdmin
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /{path+}
+            Method: ANY
+    Metadata:
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2021"
+        EntryPoints: 
+        - handlers/not-found.ts
+
+#Outputs:
+  #WebEndpoint:
+    #Description: "API Gateway endpoint URL for Prod stage"
+    #Value: Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"

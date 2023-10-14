@@ -1,0 +1,19 @@
+[
+    {
+        "fName": "Mary",
+        "lName": "Gurrieri",
+        "email": "email@email.com",
+        "password": "password",
+        "school": "School"
+        
+    },
+    {
+        "fName": "Yellow",
+        "lName": "Flower",
+        "email": "aol@aol.com",
+        "password": "username",
+        "school": "College"
+        
+    }
+
+]

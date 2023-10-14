@@ -1,0 +1,94 @@
+:root {
+    --primary: #ffb84d;
+    --primaryText: #000000;
+    --secondary: #b53d00;
+    --error: #dc3545;
+}
+
+/* @font-face {
+    font-family: "Phenomena";
+    src: url('assets/fonts/Phenomena/Phenomena-Bold.woff2') format('woff2');
+}
+
+html * {
+    font-family: "Phenomena";
+} */
+
+body {
+    background-color: lightgray;
+}
+
+#mid_box {
+    width: 300px;
+}
+
+.square_box {
+    max-width: 350px;
+    min-height: 400px;
+    background-color: ivory;
+    border: 2px solid black;
+}
+
+.bigger_box {
+    max-width: 100%;
+    min-height: 800px;
+}
+
+.visualization_box {
+    background-color: grey;
+    max-width: 100%;
+    min-height: 100%;
+    margin: 1;
+    
+}
+
+/* Navbar CSS Styles */
+.brief-navbar, .tableHeadPrimary {
+    background-color: var(--primary) !important;
+    font-weight: bold;
+    scroll-behavior: auto;
+}
+
+.input-group-text {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    margin-right: 10px;
+    color: #fff;
+}
+
+.custom-select {
+    min-width: 350px;
+    border-radius: 10px;
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+}
+
+/* Administration page's Search Bar */
+#adminSearch {
+    /* max-width: 450px; */
+    min-width: 450px;
+}
+
+/* Login page's Error Detection */
+.loginError-text {
+    color: var(--error);
+    font-size: 80%;
+}
+
+.active {
+    color: white;
+}
+
+.active:hover {
+    color: white;
+}
+
+.inactive:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+.progress_table_div {
+    max-height: 370px;
+    overflow-y: auto;
+  }

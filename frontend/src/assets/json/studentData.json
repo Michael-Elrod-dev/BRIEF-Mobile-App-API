@@ -1,0 +1,918 @@
+[
+    {
+        "firstName" : "Mark",
+        "lastName" : "Smith",
+        "email" : "SmithMark@aol.com",
+        "school" : "Whitewater High School",
+        "password" : "#password1",
+        "lessonsCompleted" : 4,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : "1",
+                "latestScore" : "10",
+                "bestScore" : "10",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "10"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : "2",
+                "latestScore" : "17",
+                "bestScore" : "19",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "19"
+                        
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "17"
+                    }
+                    
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 3,
+                "latestScore" : "29",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "28"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "30"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "29"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Carl",
+        "lastName" : "Jinkons",
+        "email" : "JinkonsCarl@aol.com",
+        "school" : "Southside High School",
+        "password" : "#password2",
+        "lessonsCompleted" : 5,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : 0,
+                "latestScore" : "-",
+                "bestScore" : "-",
+                "completion" : false,
+                "attempts" : [
+                    
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : 2,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "12"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "15"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 4,
+                "latestScore" : "28",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "24"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "27"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "30"
+                    },
+                    {
+                        "num" : 4,
+                        "score" : "28"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Rebecca",
+        "lastName" : "Tahms",
+        "email" : "TahmsRebecca@gmail.com",
+        "school" : "Southside High School",
+        "password" : "#password3",
+        "lessonsCompleted" : 1,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : 3,
+                "latestScore" : "10",
+                "bestScore" : "10",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "9"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "9"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "10"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : 0,
+                "latestScore" : "-",
+                "bestScore" : "-",
+                "completion" : false,
+                "attempts" : [
+                   
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Diana",
+        "lastName" : "Weathers",
+        "email" : "WeathersDiana@gmail.com",
+        "school" : "Whitewater High School",
+        "password" : "#password4",
+        "lessonsCompleted" : 8,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : 3,
+                "latestScore" : "10",
+                "bestScore" : "10",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "5"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "7"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "10"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : "3",
+                "latestScore" : "20",
+                "bestScore" : "20",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "10"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "17"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "20"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 4,
+                "latestScore" : "30",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "26"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "29"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "29"
+                    },
+                    {
+                        "num" : 4,
+                        "score" : "30"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Henry",
+        "lastName" : "Hopkins",
+        "email" : "HopkinsHenry@gmail.com",
+        "school" : "North Creek High School",
+        "password" : "#password5",
+        "lessonsCompleted" : 12,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : "2",
+                "latestScore" : "7",
+                "bestScore" : "9",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "9"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "7"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : "2",
+                "latestScore" : "11",
+                "bestScore" : "20",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "20"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "11"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 1,
+                "latestScore" : "30",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "30"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Bill",
+        "lastName" : "Nye",
+        "email" : "BillNye@aol.com",
+        "school" : "Whitewater High School",
+        "password" : "#password6",
+        "lessonsCompleted" : 12,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : "1",
+                "latestScore" : "10",
+                "bestScore" : "10",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "10"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : "2",
+                "latestScore" : "17",
+                "bestScore" : "19",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "19"
+                        
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "17"
+                    }
+                    
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 3,
+                "latestScore" : "29",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "28"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "30"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "29"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Steve",
+        "lastName" : "Jobs",
+        "email" : "SteveJobs@aol.com",
+        "school" : "Southside High School",
+        "password" : "#password7",
+        "lessonsCompleted" : 7,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : 0,
+                "latestScore" : "-",
+                "bestScore" : "-",
+                "completion" : false,
+                "attempts" : [
+                    
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : 2,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "12"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "15"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 4,
+                "latestScore" : "28",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "24"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "27"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "30"
+                    },
+                    {
+                        "num" : 4,
+                        "score" : "28"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Steffen",
+        "lastName" : "Dreesen",
+        "email" : "SteffenDreesen@gmail.com",
+        "school" : "Southside High School",
+        "password" : "#password7",
+        "lessonsCompleted" : 10,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : 3,
+                "latestScore" : "10",
+                "bestScore" : "10",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "9"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "9"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "10"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : 0,
+                "latestScore" : "-",
+                "bestScore" : "-",
+                "completion" : false,
+                "attempts" : [
+                   
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Jalen",
+        "lastName" : "McCloud",
+        "email" : "JalenMcCloud@gmail.com",
+        "school" : "Whitewater High School",
+        "password" : "#password8",
+        "lessonsCompleted" : 8,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : 3,
+                "latestScore" : "10",
+                "bestScore" : "10",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "5"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "7"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "10"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : "3",
+                "latestScore" : "20",
+                "bestScore" : "20",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "10"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "17"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "20"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 4,
+                "latestScore" : "30",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "26"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "29"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "29"
+                    },
+                    {
+                        "num" : 4,
+                        "score" : "30"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Gary",
+        "lastName" : "Allen",
+        "email" : "HopkinsHenry@gmail.com",
+        "school" : "North Creek High School",
+        "password" : "#password10",
+        "lessonsCompleted" : 14,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : "2",
+                "latestScore" : "7",
+                "bestScore" : "9",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "9"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "7"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : "2",
+                "latestScore" : "11",
+                "bestScore" : "20",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "20"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "11"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 1,
+                "latestScore" : "30",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "30"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Jalen",
+        "lastName" : "McCloud",
+        "email" : "JalenMcCloud@gmail.com",
+        "school" : "Whitewater High School",
+        "password" : "#password8",
+        "lessonsCompleted" : 8,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : 3,
+                "latestScore" : "10",
+                "bestScore" : "10",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "5"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "7"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "10"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : "3",
+                "latestScore" : "20",
+                "bestScore" : "20",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "10"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "17"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "20"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 4,
+                "latestScore" : "30",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "26"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "29"
+                    },
+                    {
+                        "num" : 3,
+                        "score" : "29"
+                    },
+                    {
+                        "num" : 4,
+                        "score" : "30"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "firstName" : "Kathryn",
+        "lastName" : "Smith",
+        "email" : "HopkinsHenry@gmail.com",
+        "school" : "North Creek High School",
+        "password" : "#password10",
+        "lessonsCompleted" : 11,
+        "assignmentList" : [
+            {
+                "name" : "AssignmentA",
+                "attemptTotal" : "2",
+                "latestScore" : "7",
+                "bestScore" : "9",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "9"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "7"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentB",
+                "attemptTotal" : "2",
+                "latestScore" : "11",
+                "bestScore" : "20",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "20"
+                    },
+                    {
+                        "num" : 2,
+                        "score" : "11"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentC",
+                "attemptTotal" : 1,
+                "latestScore" : "30",
+                "bestScore" : "30",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "30"
+                    }
+                ]
+            },
+            {
+                "name" : "AssignmentD",
+                "attemptTotal" : 1,
+                "latestScore" : "15",
+                "bestScore" : "15",
+                "completion" : true,
+                "attempts" : [
+                    {
+                        "num" : 1,
+                        "score" : "15"
+                    }
+                ]
+            }
+        ]
+    }
+]
