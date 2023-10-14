@@ -10,8 +10,8 @@ The BRIEF API is a serverless application designed for both an admin portal and 
 
 ## Directory Structure
 
-- `handlers/`: Contains the logic for each of the API endpoints.
-- `models/`: Contains the data models.
+- `handlers/`: Prepares the payload and checks the authorization for each of the API endpoints.
+- `models/`: Contains the data models and the logic for each of the API endpoints.
 - `tests/`: Contains the unit and integration tests.
 - `template.yaml`: The SAM template for deploying the API.
 
