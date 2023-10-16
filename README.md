@@ -1,4 +1,5 @@
 # BRIEF-Mobile-App-API
+![MockUp](https://github.com/Michael-Elrod-dev/AI-Drone-Pollinator/blob/main/MockUp.png)
 
 The BRIEF API is a serverless application designed for both an admin portal and a mobile application. It provides a set of endpoints to interact with the underlying data models like courses, assignments, and attempts.
 
